@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Class Methods</title>
+  <style>
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    .blackText {
+      color: rgb(123, 255, 0);
+    }
+    .blueText {
+      color: blue;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <p id="para1">This is a paragraph.</p>
+  <p id="para2">This is another paragraph.</p>
+
+  <button id="btnAddClass">Add Class</button>
+  <button id="btnRemoveClass">Remove Class</button>
+  <button id="btnToggleClass">Toggle Class</button>
+
+  <script>
+    $(document).ready(function() {
+      
+      $('#btnAddClass').click(function() {
+        $('#para1').addClass('highlight');
+      });
+
+      
+      $('#btnRemoveClass').click(function() {
+        $('#para1').removeClass('highlight');
+      });
+
+      
+      $('#btnToggleClass').click(function() {
+        $('#para2').toggleClass('blackText');
+      });
+    });
+  </script>
+
+</body>
+</html>
+

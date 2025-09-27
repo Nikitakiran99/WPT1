@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Username Generator</title>
+</head>
+<body>
+
+<p>Enter details:</p>
+<label>First Name: <input type="text" id="firstName" /></label><br/><br>
+<label>Last Name: <input type="text" id="lastName" /></label><br/><br>
+<label>Age: <input type="number" id="age" /></label><br/><br>
+
+<button onclick="generateUsername()">Generate Username</button>
+
+<p>Username: <span id="username"></span></p>
+
+<script>
+function generateUsername() {
+  let firstName = document.getElementById('firstName').value.trim();
+  let lastName = document.getElementById('lastName').value.trim();
+  let age = document.getElementById('age').value.trim();
+
+  if(firstName.length < 2 || lastName.length < 2 || age === "") {
+    alert('Please enter valid first name, last name (min 2 chars) and age');
+    return;
+  }
+
+  let username = firstName.slice(0,2).toLowerCase() + lastName.slice(-2).toLowerCase() + age;
+  
+  document.getElementById('username').textContent = username;
+}
+</script>
+
+</body>
+</html>

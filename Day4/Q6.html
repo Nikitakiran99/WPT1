@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Form</title>
+</head>
+<body>
+    <form id="employeeForm" onsubmit="return validForm()">
+        First name: <input type="text" id="firstName" /> <br /><br />
+         Last name: <input type="text" id="LastName" /> <br /><br />
+         Email id: <input type="text"  id="EmailId" /> <br /><br />
+       
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validForm() {
+            const firstName = document.getElementById('firstName').value.trim();
+
+            if (firstName === '') {
+                alert('Enter first Name');
+                return false; 
+            }
+            if(LastName ===""){
+                alert('Enter last name');
+                return false;
+            }
+            if(EmailId ===""){
+                alert('Enter email id');
+                return false;
+            }
+            alert('Employee data is valid!');
+            return true; 
+    </script>
+</body>
+</html>

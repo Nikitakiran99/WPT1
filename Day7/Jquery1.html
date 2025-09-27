@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery File</title>
+    <script src ="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script> 
+
+        $(document).ready(function() {
+      function animateParagraph() {
+        var windowWidth = $(window).width();
+        var paraWidth = $("#para1").outerWidth();
+        $("#para1").css({ position: "relative", left: 0 });
+        $("#para1").animate(
+          { left: windowWidth - paraWidth },
+          2000,
+          "linear",
+          function() {
+            animateParagraph();
+          }
+        );
+      }
+
+
+            $("button").click(function(){
+                $("iframe").hide();
+                $("#para").css("position", "relative");
+                $("#para").animate({left: '250px'}, 500);
+                animateParagraph(); 
+            });
+        })
+    </script>
+</head>
+<body>
+    <h2>This is heading </h2>
+<p id="para"> This is the Paragraph 1</p>
+
+<button id="para1">This is the Paragraph 2</button>
+<br>
+<br>
+<iframe > </iframe>
+
+<br>
+<br>
+<button> click me to hide paragraph </button>
+
+</body>
+</html>

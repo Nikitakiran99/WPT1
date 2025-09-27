@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume and Registration Form Loader</title>
+  <script>
+    function showInIframe(src) {
+      document.getElementById('displayFrame').src = src;
+    }
+  </script>
+</head>
+<body>
+  <a href="#" onclick="showInIframe('resume.html');return false;">Resume</a> |
+  <a href="#" onclick="showInIframe('registration.html');return false;">Registration Form</a>
+  <br><br>
+  <iframe
+    id="displayFrame"
+    src="sample-img.jpg"
+    width="1000"
+    height="500"
+    title="Display Frame">
+  </iframe>
+
+  
+</body>
+</html>

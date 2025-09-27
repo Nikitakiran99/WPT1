@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="number" id="postId" placeholder="Enter post ID" />
+    <button onclick="showData()">Get Data</button>
+    <div id="result"></div>
+</body>
+
+<script>
+    function showData() {
+        const idToFind = parseInt(document.getElementById('postId').value);
+        if (isNaN(idToFind)) {
+            document.getElementById('result').innerHTML = "Please enter a valid number for ID.";
+            return;
+        }
+
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+        request.send();
+
+        request.onload = function () { 
+            if (this.status == 200) {
+                let dataJson = this.responseText;
+                let posts = JSON.parse(dataJson);
+
+                // Filter posts by the entered id
+                let filteredPosts = posts.filter(post => post.id === idToFind);
+
+                if (filteredPosts.length === 0) {
+                    document.getElementById("result").innerHTML = "No post found with ID " + idToFind;
+                    return;
+                }
+
+                let table = "<table border='1'><tr><th>ID</th><th>Title</th></tr>";
+                for (let i = 0; i < filteredPosts.length; i++) {
+                    table += "<tr><td>" + filteredPosts[i].id + "</td><td>" + filteredPosts[i].title + "</td></tr>";
+                }
+                table += "</table>";
+
+                document.getElementById("result").innerHTML = table;
+            }
+        }
+    }
+</script>
+</html>

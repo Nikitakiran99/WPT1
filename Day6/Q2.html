@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Animation with setInterval</title>
+  <style>
+    #leftDiv, #rightDiv {
+      position: fixed;
+      top: 10px;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      user-select: none;
+    }
+    #leftDiv {
+      left: 10px;
+      background-color: rgb(77, 77, 82);
+    }
+    #rightDiv {
+      right: 10px;
+      background-color: rgb(43, 1, 1);
+    }
+  </style>
+</head>
+<body>
+
+<div id="leftDiv">Left</div>
+<div id="rightDiv">Right</div>
+
+<script>
+  let leftDiv = document.getElementById('leftDiv');
+  let rightDiv = document.getElementById('rightDiv');
+
+ 
+  let colors = ['blue', 'green', 'purple', 'orange'];
+  let index = 0;
+  let intervalID = setInterval(() => {
+    leftDiv.style.backgroundColor = colors[index];
+    index = (index + 1) % colors.length;
+  }, 1000);
+
+  function flash() {
+    rightDiv.style.visibility = rightDiv.style.visibility === 'hidden' ? 'visible' : 'hidden';
+    setTimeout(flash, 500);
+  }
+  flash();
+
+
+  setTimeout(() => {
+    clearInterval(intervalID);
+    leftDiv.style.backgroundColor = 'blue'; 
+  }, 10000);
+</script>
+
+</body>
+</html>
+
+

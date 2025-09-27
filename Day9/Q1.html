@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<button id="loadBtn">Load with .load()</button>
+<button id="getBtn">Load with $.get()</button>
+<div id="result">Content here</div>
+
+<script>
+  $("#loadBtn").click(function() {
+    $("#result").load("demo_test.txt");
+  });
+  
+  $("#getBtn").click(function() {
+    $.get("demo_test.txt", function(data) {
+      $("#result").text(data);
+    });
+  });
+</script>
+
+</body>
+</html>

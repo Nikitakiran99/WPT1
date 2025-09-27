@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #ad {display:none; width:250px; height:120px; background:#ffcc00; 
+         text-align:center; line-height:120px; position:fixed; 
+         top:50%; left:50%; transform:translate(-50%,-50%);}
+    #ad.fadeIn {animation:fadeIn 1s forwards;}
+    #ad.fadeOut {animation:fadeOut 1s forwards;}
+    @keyframes fadeIn {from{opacity:0} to{opacity:1}}
+    @keyframes fadeOut {from{opacity:1} to{opacity:0}}
+  </style>
+</head>
+<body>
+
+<div id="ad">
+  Buy Now!
+  <button onclick="closeAd()">X</button>
+</div>
+
+<script>
+  let ad=document.getElementById('ad');
+  window.onload=()=>{ad.style.display="block";ad.className="fadeIn";}
+  function closeAd(){ad.className="fadeOut";setTimeout(()=>ad.style.display="none",1000);}
+</script>
+
+</body>
+</html>

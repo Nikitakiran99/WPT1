@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Factorial with jQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<input type="text" id="num" placeholder="Enter a number" />
+<p id="fact"></p>
+
+<script>
+  function factorial(n) {
+    let result = 1;
+    for(let i = 2; i <= n; i++) {
+      result *= i;
+    }
+    return result;
+  }
+
+
+  $(function() {
+    $('#num').change(function() {
+      let number = parseInt($(this).val());
+      if(isNaN(number) || number < 0) {
+        $('#fact').text('Enter a valid non-negative number');
+      } else {
+        $('#fact').text('Factorial: ' + factorial(number));
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

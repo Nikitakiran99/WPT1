@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="myButton" onclick="clickCounter()">Click Me</button>
+<p id="clickDisplay">Clicks: 0</p>
+
+<script>
+    let count = 0;
+
+    function clickCounter() {
+        count++;
+        document.getElementById('clickDisplay').innerText = "Clicks: " + count;
+
+        if (count >= 10) {
+            document.getElementById('myButton').disabled = true;
+            document.getElementById('myButton').innerText = "Limit Reached";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="console"> </div>
+    <script>
+
+        const consoleDiv = document.getElementById('console');
+    console.log = function(msg) {
+      consoleDiv.innerHTML += msg + '<br>';
+    };
+
+
+
+        const numerator=100;
+const denominator=0;
+
+
+try{
+
+    const result=console.log(numerator/denominator)
+    console.log(result);
+    console.log(a);
+}
+catch(error)
+{
+    console.log('An error caught');
+    console.log('error msg:'+ error);
+
+}
+finally
+{
+    console.log('finally will exucute every time')
+}
+    </script>
+</body>
+</html>

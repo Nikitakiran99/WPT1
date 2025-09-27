@@ -1,0 +1,44 @@
+/* HTML Selectors */
+input {
+    color: blue;
+    background-color: lightyellow;
+    font-style: italic;
+    border: 2px solid green;
+}
+
+p {
+    color: darkred;
+    background-color: lightgray;
+    font-style: normal;
+    border: 1px dashed black;
+}
+
+select {
+    color: darkblue;
+    background-color: lavender;
+    font-style: oblique;
+    border: 3px dotted purple;
+}
+
+/* Class Selectors */
+.moderate {
+    color: teal;
+    background-color: beige;
+    font-style: normal;
+    border: 2px solid orange;
+}
+
+.gaudy {
+    color: white;
+    background-color: magenta;
+    font-style: italic;
+    border: 4px double red;
+}
+
+/* ID Selector */
+#id1 {
+    color: black;
+    background-color: lightgreen;
+    font-style: bold;
+    border: 5px groove blue;
+}

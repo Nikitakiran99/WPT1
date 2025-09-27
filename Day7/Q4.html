@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quote Scroller</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background: #f4f4f9;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    
+    .box {
+      width: 500px;
+      height: 60px;
+      margin: 20px auto;
+      overflow: hidden;
+      border: 2px solid #333;
+      border-radius: 8px;
+      position: relative;
+      background: white;
+    }
+    .quote {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 26px;
+      color: #2c3e50;
+      font-style: italic;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background: #2c3e50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <div class="quote">"The best way to predict the future is to invent it."</div>
+  </div>
+
+  <button id="startBtn">Start Scrolling</button>
+
+  <script>
+    $(function(){
+      var $q = $(".quote");
+      var boxW = $(".box").width();
+      var qW = $q.width();
+
+      function scroll(from, to, cb) {
+        $q.css({left: from});
+        $q.animate({left: to}, 2500, "linear", cb);
+      }
+
+      function run() {
+        var count = 0;
+        function sequence() {
+          if (count < 4) {
+            scroll(-qW, boxW, function(){ count++; sequence(); });
+          } else {
+            scroll(boxW, -qW, function(){ console.log("Done!"); });
+          }
+        }
+        sequence();
+      }
+
+      $("#startBtn").on("click", function(){
+        run();
+      });
+    });
+  </script>
+
+</body>
+</html>

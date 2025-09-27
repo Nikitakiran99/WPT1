@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Inputs and Image Styling</title>
+    <style>
+        /* Container to keep inputs in one line with spacing */
+        .input-container {
+            display: flex;
+            gap: 20px;
+            /* space between inputs */
+            margin: 0 30px;
+            /* left and right margins */
+        }
+
+        /* Style inputs with solid blue border and border size */
+        input[type="text"] {
+            border: 2px solid blue;
+            padding: 8px;
+            border-radius: 0;
+            /* no rounding on inputs */
+            width: 150px;
+            box-sizing: border-box;
+        }
+
+        /* Style for image with rounded red border and top margin */
+        .styled-image {
+            display: block;
+            margin: 30px auto 0;
+            /* top margin for spacing */
+            border: 3px solid red;
+            border-radius: 15px;
+            max-width: 400px;
+            /* optional max width */
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="input-container">
+        <input type="text" placeholder="Input 1">
+        <input type="text" placeholder="Input 2">
+        <input type="text" placeholder="Input 3">
+    </div>
+
+    <img class="styled-image"
+        src="https://th.bing.com/th/id/OIP.S8By6ruJG28io9df5ljxEQHaD4?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+        alt="Sample Image">
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Calculator</title>
+</head>
+<body>
+
+    <pre><h1><i>Q4.Callback Calculator</i> </h1></pre>
+
+    <div>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <br>
+        <br>
+    </div>
+
+    <div>
+        <button onclick="performCalculation('add')">Addition</button>
+        <button onclick="performCalculation('sub')">Subtraction</button>
+        <button onclick="performCalculation('mul')">Multiply</button>
+        <button onclick="performCalculation('div')">Division</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+
+        function display(result) {
+            document.getElementById('result').innerText = "Result: " + result;
+        }
+
+        
+        function addition(n1, n2, callback) {
+            const sum = n1 + n2;
+            callback(sum);
+        }
+
+        
+        function subtraction(n1, n2, callback) {
+            const difference = n1 - n2;
+            callback(difference);
+        }
+
+        
+        function multiply(n1, n2, callback) {
+            const product = n1 * n2;
+            callback(product);
+        }
+
+        
+        function division(n1, n2, callback) {
+            if (n2 === 0) {
+                callback("Cannot divide by zero.");
+                return;
+            }
+            const quotient = n1 / n2;
+            callback(quotient);
+        }
+
+        
+        function calculate(n1, n2, operationCallback) {
+            operationCallback(n1, n2, display);
+        }
+
+        
+        function performCalculation(operation) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            switch (operation) {
+                case 'add':
+                    calculate(num1, num2, addition);
+                    break;
+                case 'sub':
+                    calculate(num1, num2, subtraction);
+                    break;
+                case 'mul':
+                    calculate(num1, num2, multiply);
+                    break;
+                case 'div':
+                    calculate(num1, num2, division);
+                    break;
+                default:
+                    display("Invalid operation selected.");
+            }
+        }
+    </script>
+
+</body>
+</html>

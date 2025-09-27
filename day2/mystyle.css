@@ -1,0 +1,27 @@
+
+p {
+ background-color: rgb(49, 174, 196);
+}
+
+h1{
+    color: rebeccapurple;
+}
+
+body{
+text-align:center;
+background-color: rgb(207, 210, 230);
+}
+
+form{
+    border-style :ridge; 
+    margin-left: 20em;margin-right: 20em;
+    margin-top: 1%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 2%;
+    text-align: left;
+    
+}
+form {
+  text-align: center;
+}

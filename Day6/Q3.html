@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Input to JSON and Table</title>
+</head>
+<body>
+
+  <input id="firstName" placeholder="First Name" /><br><br>
+  <input id="lastName" placeholder="Last Name" /><br><br>
+  <input id="age" placeholder="Age" type="number" /><br><br>
+  <button onclick="submitData()">Submit</button><br><br>
+
+  
+  <pre id="jsonData"></pre>
+  <div id="tableDiv"></div>
+
+  <script>
+    function submitData() {
+      const obj = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        age: Number(document.getElementById('age').value)
+      };
+
+      const jsonStr = JSON.stringify(obj, null, 2);
+      document.getElementById('jsonData').textContent = jsonStr;
+
+      
+      let table = '<table border="1"><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>';
+      table += `<tr><td>${obj.firstName}</td><td>${obj.lastName}</td><td>${obj.age}</td></tr></table>`;
+      
+      document.getElementById('tableDiv').innerHTML = table;
+    }
+  </script>
+
+</body>
+</html>
